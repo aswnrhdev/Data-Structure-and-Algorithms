@@ -142,16 +142,43 @@ class BinarySearchTree {
         }
         return root;
     }
+
+    isTreeEqual(root1, root2){
+        if(root1 === null && root2 === null){
+            return true
+        }
+
+        if(root1 === null || root2 === null){
+            return false
+        }
+
+        if(root1.value !== root2.value){
+            return false
+        }
+
+        return this.isTreeEqual(root1.left, root2.left) && this.isTreeEqual(root1.right, root2.right)
+    }
 }
 
-// Example usage:
-const bst = new BinarySearchTree();
 
-// bst.insert(10);
-// bst.insert(5);
-// bst.insert(15);
-// bst.insert(3);
-// bst.insert(7);
+
+// Example usage:
+const bst1 = new BinarySearchTree();
+const bst2 = new BinarySearchTree();
+
+bst1.insert(10);
+bst1.insert(5);
+bst1.insert(15);
+bst1.insert(3);
+bst1.insert(7);
+
+// bst2.insert(10);
+bst2.insert(5);
+bst2.insert(15);
+bst2.insert(3);
+bst2.insert(7);
+
+console.log(bst1.isTreeEqual(bst1.root, bst2.root));
 
 // console.log(bst.search(5));
 // console.log(bst.search(70));
