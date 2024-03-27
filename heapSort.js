@@ -72,7 +72,7 @@ class Heap {
 
     heapifyUp() {
         let currentIndex = this.data.length - 1;
-        while (currentIndex > 0 && this.data[currentIndex] < this.data[this.getParentIndex(currentIndex)]) {
+        while (this.data[currentIndex] < this.data[this.getParentIndex(currentIndex)]) {
             this.swap(currentIndex, this.getParentIndex(currentIndex));
 
             currentIndex = this.getParentIndex(currentIndex);
