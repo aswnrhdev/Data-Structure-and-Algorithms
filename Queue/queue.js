@@ -14,7 +14,7 @@ class Queue {
     //     this.rear++;
     // }
 
-    enQueue(value){
+    enQueue(value) {
         this.items.push(value)
     }
 
@@ -31,8 +31,8 @@ class Queue {
 
     // }
 
-    deQueue(value){
-        if(this.isEmpty()){
+    deQueue(value) {
+        if (this.isEmpty()) {
             return "Queue Underflow"
         }
 

@@ -23,21 +23,21 @@ class Heap {
 
     //MAX HEAP
 
-    push(key){
+    push(key) {
         this.data[this.data.length] = key;
         this.heapifyUp();
     }
 
-    heapifyUp(){
+    heapifyUp() {
         let currentIndex = this.data.length - 1;
-        while(this.data[currentIndex] > this.data[this.getParentIndex(currentIndex)]){
+        while (this.data[currentIndex] > this.data[this.getParentIndex(currentIndex)]) {
             this.swap(currentIndex, this.getParentIndex(currentIndex));
 
             currentIndex = this.getParentIndex(currentIndex);
         }
     }
 
-    pop(){
+    pop() {
         const maxValue = this.data[0];
         this.data[0] = this.data[this.data.length - 1];
         this.data.length--;
@@ -45,19 +45,19 @@ class Heap {
         return maxValue;
     }
 
-    heapifyDown(){
+    heapifyDown() {
         let currentIndex = 0;
-        while(this.data[this.getLeftChildIndex(currentIndex)] !== undefined){
+        while (this.data[this.getLeftChildIndex(currentIndex)] !== undefined) {
             let biggestChildIndex = this.getLeftChildIndex(currentIndex);
 
-            if(this.data[this.getRightChildIndex(currentIndex)] !== undefined && this.data[this.getRightChildIndex(currentIndex)] > this.data[this.getLeftChildIndex(currentIndex)]){
+            if (this.data[this.getRightChildIndex(currentIndex)] !== undefined && this.data[this.getRightChildIndex(currentIndex)] > this.data[this.getLeftChildIndex(currentIndex)]) {
                 biggestChildIndex = this.getRightChildIndex(currentIndex);
             }
 
-            if(this.data[currentIndex] < this.data[biggestChildIndex]){
+            if (this.data[currentIndex] < this.data[biggestChildIndex]) {
                 this.swap(currentIndex, biggestChildIndex);
                 currentIndex = biggestChildIndex;
-            }else{
+            } else {
                 return;
             }
         }

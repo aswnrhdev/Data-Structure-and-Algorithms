@@ -1,46 +1,46 @@
-class Node{
-    constructor(value){
+class Node {
+    constructor(value) {
         this.value = value
         this.next = null
     }
 }
 
-class LinkedList{
-    constructor(){
+class LinkedList {
+    constructor() {
         this.size = 0
         this.head = null
     }
 
-    isEmpty(){
+    isEmpty() {
         return this.size === 0;
     }
 
-    getSize(){
+    getSize() {
         return this.size;
     }
 
-    prepend(value){
+    prepend(value) {
         const node = new Node(value);
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             this.head = node
-        }else{
+        } else {
             node.next = this.head
             this.head = node
         }
         this.size++
     }
 
-    removeFromFront(){
-        if(this.isEmpty()){
+    removeFromFront() {
+        if (this.isEmpty()) {
             return null
         }
 
         let removedValues;
 
-        if(this.size === 1){
+        if (this.size === 1) {
             removedValues = this.head.value
             this.head = null;
-        }else{
+        } else {
             removedValues = this.head.value
             this.head = this.head.next
 
@@ -50,14 +50,14 @@ class LinkedList{
         return removedValues;
     }
 
-    print(){
-        if(this.isEmpty()){
+    print() {
+        if (this.isEmpty()) {
             console.log('The list is empty!');
-        }else{
+        } else {
             let curr = this.head
             let listValues = ''
 
-            while(curr){
+            while (curr) {
                 listValues += `${curr.value} `
                 curr = curr.next
             }

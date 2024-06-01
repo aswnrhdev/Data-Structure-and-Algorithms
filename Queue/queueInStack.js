@@ -19,12 +19,12 @@ class Stack {
         return this.items.pop();
     }
 
-    enQueue(value){
+    enQueue(value) {
         this.items.push(value)
         this.size++
     }
 
-    deQueue(){
+    deQueue() {
         let removedValues = this.items.shift()
         this.size--
         return removedValues
